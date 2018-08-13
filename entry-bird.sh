@@ -52,10 +52,10 @@ run_bird() {
 	printf "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
 
         echo "executing bird daemon..."
-        /usr/sbin/bird -c /etc/bird/bird.conf
+        /usr/sbin/bird -c /etc/bird/bird.conf -s /var/run/bird/bird.ctl
         sleep 1;
         echo "executing bird6 daemon..."
-        /usr/sbin/bird6 -c /etc/bird/bird6.conf
+        /usr/sbin/bird6 -c /etc/bird/bird6.conf -s /var/run/bird/bird6.ctl
         sleep 1;
 
 	while true; do
