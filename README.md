@@ -10,4 +10,4 @@ FIB manipulation currently requires some capability:
 
 Configuration is done by supplying a bird.conf and/or bird6.conf
 file(s) in /opt/bird. If a config file is not supplied
-on startup, a default one is used.
+on startup, `bird` or `bird6` will not be launched.

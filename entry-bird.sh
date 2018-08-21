@@ -41,30 +41,39 @@ run_bird() {
 	echo "Validating input..."
 	validate_input
 
-	printf ">>> bird configuration >>>>>>>>>>>>>>>>>\n"
-	[ -f /opt/bird/bird.conf ] && cp /opt/bird/bird.conf /etc/bird/bird.conf
-	cat /etc/bird/bird.conf
-	printf "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
-
-	printf ">>> bird6 configuration >>>>>>>>>>>>>>>>>\n"
-	[ -f /opt/bird/bird6.conf ] && cp /opt/bird/bird6.conf /etc/bird/bird6.conf
-	cat /etc/bird/bird6.conf
-	printf "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
-
+    if [ -f /opt/bird/bird.conf ]; then
+        printf ">>> bird configuration >>>>>>>>>>>>>>>>>\n"
+        cp /opt/bird/bird.conf /etc/bird/bird.conf
+        cat /etc/bird/bird.conf
+        printf "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
+        export BIRD_ENABLED=True
         echo "executing bird daemon..."
         /usr/sbin/bird -c /etc/bird/bird.conf -s /var/run/bird/bird.ctl
         sleep 1;
+    else
+        echo "no bird.conf provided at /opt/bird/. bird disabled"
+    fi
+
+    if [ -f /opt/bird/bird6.conf ]; then
+        printf ">>> bird6 configuration >>>>>>>>>>>>>>>>>\n"
+        [ -f /opt/bird/bird6.conf ] && cp /opt/bird/bird6.conf /etc/bird/bird6.conf
+        cat /etc/bird/bird6.conf
+        printf "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
+        export BIRD6_ENABLED=True
         echo "executing bird6 daemon..."
         /usr/sbin/bird6 -c /etc/bird/bird6.conf -s /var/run/bird/bird6.ctl
         sleep 1;
+    else
+        echo "no bird6.conf provided at /opt/bird/. bird6 disabled"
+    fi
 
 	while true; do
-                if ! pidof bird > /dev/null; then
+                if [ \( -n "$BIRD_ENABLED" \) -a \( ! pidof bird > /dev/null\) ]; then
                         echo "Bird died. Terminating."
                         exit 1
                 fi
 
-                if ! pidof bird6 > /dev/null; then
+                if [ \( -n "$BIRD6_ENABLED" \) -a \( ! pidof bird6 > /dev/null\) ]; then
                         echo "Bird6 died. Terminating."
                         exit 1
                 fi

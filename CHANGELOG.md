@@ -1,6 +1,10 @@
 # Changelog
 ## pre 1.0
 
+### 0.4.0
+
+* disable `bird` or `bird6` if configuration is not provided.
+
 ### 0.3.0
 
 * change configuration mount point to `/opt/bird/`, because `/run` and
