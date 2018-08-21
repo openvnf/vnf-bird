@@ -68,12 +68,12 @@ run_bird() {
     fi
 
 	while true; do
-                if [ \( -n "$BIRD_ENABLED" \) -a \( ! pidof bird > /dev/null\) ]; then
+                if [ \( -n "$BIRD_ENABLED" \) -a \( ! pidof bird > /dev/null \) ]; then
                         echo "Bird died. Terminating."
                         exit 1
                 fi
 
-                if [ \( -n "$BIRD6_ENABLED" \) -a \( ! pidof bird6 > /dev/null\) ]; then
+                if [ \( -n "$BIRD6_ENABLED" \) -a \( ! pidof bird6 > /dev/null \) ]; then
                         echo "Bird6 died. Terminating."
                         exit 1
                 fi
