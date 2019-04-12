@@ -1,7 +1,11 @@
-FROM ubuntu:18.04
+FROM fedora:29
 
-RUN apt-get update && \
-    apt-get install -qy --no-install-recommends bird iputils-ping traceroute iproute2 less vim netcat curl
+# Add repository (has to be debugged)
+
+RUN dnf install -y iputils traceroute iproute less nmap-ncat socat curl 'dnf-command(config-manager)'
+COPY RPM-GPG-KEY-network.cz /etc/pki/rpm-gpg/RPM-GPG-KEY-network.cz
+COPY bird.repo /etc/yum.repos.d/bird.repo
+RUN dnf install -y bird
 RUN mkdir /run/bird
 
 ENV HOME /root
