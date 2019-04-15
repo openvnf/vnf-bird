@@ -4,7 +4,7 @@ FROM fedora:29
 
 COPY RPM-GPG-KEY-network.cz /etc/pki/rpm-gpg/RPM-GPG-KEY-network.cz
 COPY bird.repo /etc/yum.repos.d/bird.repo
-RUN dnf install -y iputils traceroute iproute less bird && dnf clean all
+RUN dnf install -y iputils traceroute iproute less bird procps-ng && dnf clean all
 RUN mkdir /run/bird
 
 ENV HOME /root

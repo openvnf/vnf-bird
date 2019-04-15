@@ -1,4 +1,11 @@
 # Changelog
+
+## 1.0
+### 1.0.0
+
+* use Fedora as a base image instead of Ubuntu
+* use upstream `bird.network.cz` repository for latest `bird` version
+
 ## pre 1.0
 
 ### 0.4.0
