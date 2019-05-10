@@ -2,6 +2,10 @@
 
 ## 1.0
 
+### 1.0.2
+
+* install bird6 as it was missing
+
 ### 1.0.1
 
 * create `/etc/bird` folder
