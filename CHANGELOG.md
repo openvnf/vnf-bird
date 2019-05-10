@@ -1,6 +1,11 @@
 # Changelog
 
 ## 1.0
+
+### 1.0.1
+
+* create `/etc/bird` folder
+
 ### 1.0.0
 
 * use Fedora as a base image instead of Ubuntu
