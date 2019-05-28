@@ -2,6 +2,10 @@
 
 ## 1.0
 
+### 1.1.0
+
+* output logs of bird to stdout
+
 ### 1.0.2
 
 * install bird6 as it was missing
