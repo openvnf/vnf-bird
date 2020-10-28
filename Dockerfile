@@ -1,4 +1,4 @@
-FROM fedora:29
+FROM fedora:33
 
 # Add repository (has to be debugged)
 
