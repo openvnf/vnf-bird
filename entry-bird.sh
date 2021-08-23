@@ -71,14 +71,14 @@ run_bird() {
 
         # check if Bird died
         if [ -n "$BIRD_ENABLED" ]; then
-            if ! pidof bird > /dev/null; then
+            if ! pidof -q bird; then
                 echo "Bird died. Terminating."
                 exit 1
             fi
         fi
 
         if [ -n "$BIRD6_ENABLED" ]; then
-            if ! pidof bird6 > /dev/null; then
+            if ! pidof -q bird6; then
                 echo "Bird6 died. Terminating."
                 exit 1
             fi

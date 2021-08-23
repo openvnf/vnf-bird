@@ -2,6 +2,11 @@
 
 ## 1.0
 
+### 1.2.0
+
+* use Ubuntu 20.04 instead of Fedora
+* use latest stable bird 1.6 (1.6.8)
+
 ### 1.1.0
 
 * output logs of bird to stdout
