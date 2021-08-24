@@ -1,10 +1,9 @@
-FROM fedora:29
+FROM ubuntu:20.04
 
 # Add repository (has to be debugged)
 
-COPY RPM-GPG-KEY-network.cz /etc/pki/rpm-gpg/RPM-GPG-KEY-network.cz
-COPY bird.repo /etc/yum.repos.d/bird.repo
-RUN dnf install -y iputils traceroute iproute less bird bird6 procps-ng && dnf clean all
+RUN apt update 
+RUN apt install -qy iputils-ping iputils-tracepath iputils-arping traceroute iproute2 less bird procps
 RUN mkdir -p /run/bird
 RUN mkdir -p /etc/bird
 

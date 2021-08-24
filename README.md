@@ -1,7 +1,7 @@
 # bird routing daemon
 
-This container image provides bird 1.6.3 (bird.network.cz)
-on ubuntu 18.04.
+This container image provides bird 1.6.8 (bird.network.cz)
+on ubuntu 20.04.
 
 FIB manipulation currently requires some capability:
 	NET_ADMIN, SYS_ADMIN, SETPCAP, NET_RAW
