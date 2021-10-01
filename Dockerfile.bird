@@ -1,0 +1,15 @@
+FROM ubuntu:20.04
+
+# Add repository (has to be debugged)
+
+RUN apt update 
+RUN apt install -qy iputils-ping iputils-tracepath iputils-arping traceroute iproute2 less bird procps
+RUN mkdir -p /run/bird
+RUN mkdir -p /etc/bird
+
+ENV HOME /root
+WORKDIR /root
+
+EXPOSE 179
+
+ENTRYPOINT [ "/usr/sbin/bird", "-d", "-c", "/opt/bird/bird.conf", "-s", "/var/run/bird/bird.ctl" ]

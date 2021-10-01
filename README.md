@@ -1,13 +1,15 @@
 # bird routing daemon
 
-This container image provides bird 1.6.8 (bird.network.cz)
-on ubuntu 20.04.
+This projects provides container images for `bird` version 1.6.8 (bird.network.cz) on ubuntu 20.04.
+There are two separate images, one for `bird` and one for `bird6`.
 
-FIB manipulation currently requires some capability:
-	NET_ADMIN, SYS_ADMIN, SETPCAP, NET_RAW
+FIB manipulation currently requires some capabilities:
 
-### Configuration
+```text
+NET_ADMIN, SYS_ADMIN, SETPCAP, NET_RAW
+```
 
-Configuration is done by supplying a bird.conf and/or bird6.conf
-file(s) in /opt/bird. If a config file is not supplied
-on startup, `bird` or `bird6` will not be launched.
+## Configuration
+
+Depending on the image, the configuration is done by supplying a `bird.conf`, or respectively, a `bird6.conf`
+file in `/opt/bird`.

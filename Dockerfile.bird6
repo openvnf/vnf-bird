@@ -10,8 +10,6 @@ RUN mkdir -p /etc/bird
 ENV HOME /root
 WORKDIR /root
 
-ADD entry-bird.sh /usr/local/bin
-RUN chmod 0755 /usr/local/bin/entry-bird.sh
 EXPOSE 179
 
-ENTRYPOINT [ "/usr/local/bin/entry-bird.sh" ]
+ENTRYPOINT [ "/usr/sbin/bird6", "-d", "-c", "/opt/bird/bird6.conf", "-s", "/var/run/bird/bird6.ctl" ]

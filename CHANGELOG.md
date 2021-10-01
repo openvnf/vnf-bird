@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.X
+
+### 2.0.0
+
+* separate images for bird and bird6
+
 ## 1.X
 
 ### 1.2.0
