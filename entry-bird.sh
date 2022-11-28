@@ -72,9 +72,10 @@ run_bird() {
         # check if Bird died
         if [ -n "$BIRD_ENABLED" ]; then
             birdpid=`pidof bird`
-            if [$? -ne 0]; then
-              for (( tiktak=1; tiktak<11; tiktak++ )); do
-                 echo "No birdpid for last $tiktak seconds"
+            if [ $? -ne 0 ]; then
+              i=0
+              while [ "$i" -le 11 ]; do
+                 echo "No birdpid for last $i seconds"
                  echo "=============\n"
                  date
                  echo "=============\n"
@@ -86,6 +87,7 @@ run_bird() {
                     echo "BIRD PID found and it's $birdpid"
                     break
                  fi
+                 tiaktak=$((i+1))
               done
               if [ -z ${birdpid} ]; then
                   echo "Bird died. Terminating."
@@ -97,9 +99,10 @@ run_bird() {
         # check if Bird6 died
         if [ -n "$BIRD6_ENABLED" ]; then
             bird6pid=`pidof bird6`
-            if [$? -ne 0]; then
-              for (( tiktak=1; tiktak<11; tiktak++ )); do
-                 echo "No bird6pid for last $tiktak seconds"
+            if [ $? -ne 0 ]; then
+              i=0
+              while [ "$i" -le 11 ]; do
+                 echo "No bird6pid for last $i seconds"
                  echo "=============\n"
                  date
                  echo "=============\n"
@@ -111,6 +114,7 @@ run_bird() {
                     echo "BIRD6 PID found and it's $bird6pid"
                     break
                  fi
+                 tiaktak=$((i+1))
               done
               if [ -z ${birdpid} ]; then
                   echo "Bird died. Terminating."
