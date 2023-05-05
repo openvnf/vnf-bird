@@ -1,6 +1,9 @@
 # Changelog
 
-## 1.X
+## 1.2.1
+
+* update Ubuntu packages to fetch latest security patches
+* add timer before killing bird container
 
 ### 1.2.0
 
